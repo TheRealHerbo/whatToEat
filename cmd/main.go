@@ -8,8 +8,8 @@ import (
 func main() {
     app := echo.New()
 
-    recipeHandler := handler.recipeHandler{}
-
+    recipeHandler := handler.RecipeHandler{}
+    
     app.GET("/recipes", recipeHandler.HandleRecipeShow)
 
     app.Start(":3000")
