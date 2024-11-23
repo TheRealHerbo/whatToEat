@@ -1,18 +1,24 @@
 package main
 
 import (
-	"github.com/HergyoBotond/whatToEat/handler"
-	"github.com/labstack/echo/v4"
+	"log"
+	"net/http"
+
+	"github.com/HergyoBotond/whatToEat/view"
+	"github.com/HergyoBotond/whatToEat/view/layout"
+	"github.com/HergyoBotond/whatToEat/view/partial"
+
+	"github.com/a-h/templ"
 )
 
 func main() {
-    app := echo.New()
+    fs := http.FileServer(http.Dir("./static"))
+    http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-    recipeHandler := handler.RecipeHandler{}
-    
-    app.GET("/recipes", recipeHandler.HandleRecipeShow)
+    c := layout.Base(view.Index())
+    http.Handle("/", templ.Handler(c))
 
-    app.Start(":3000")
+    http.Handle("/recipies", templ.Handler(partial.Foo()))
 
-    app.Logger.Fatal(app.Start(":3000"))
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
