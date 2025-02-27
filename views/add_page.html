@@ -1,0 +1,32 @@
+{{ block "add_page" . }}
+<div class="container">
+    <form hx-post="/new" hx-target="#page" hx-swap="innerHTML" hx-push-url="/recipies">
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+                <input class="input" type="text" name="name" placeholder="Name">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Ingredients</label>
+            <div class="control">
+                <textarea class="textarea" name="ingredients" placeholder="Ingredients"></textarea>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Directions</label>
+            <div class="control">
+                <textarea class="textarea" name="directions" placeholder="Directions"></textarea>
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" type="submit">Add</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light" hx-target="#page" hx-get="/recipies" hx-swap="innerHTML" hx-push-url="/recipies">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+{{ end }}

@@ -1,0 +1,9 @@
+version: "2"
+sql:
+  - engine: "sqlite"
+    queries: "cmd/query.sql"
+    schema: "cmd/schema.sql"
+    gen:
+      go:
+        package: "access"
+        out: "access"

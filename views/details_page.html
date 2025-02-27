@@ -1,0 +1,15 @@
+{{ block "details_page" . }}
+<div class="fixed-grid has-2-colls">
+    <div class="grid">
+        <div class="cell">
+            <p>Image</p>
+        </div>
+        <div class="cell">
+            <p>Ingredients:</p>
+            {{ .Ingredients }}
+        </div>
+    </div>
+</div>
+<p>Directions:</p>
+{{ .Directions}}
+{{ end }}

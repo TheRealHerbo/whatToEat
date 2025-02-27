@@ -1,0 +1,28 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.3/css/bulma.min.css">
+    <link href="/css/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+</head>
+
+<body>
+    {{ template "navbar" }}
+    <div id="page">
+        {{ template "home_page" }}
+    </div>
+</body>
+
+</html>
+{{ end }}
+
+{{ block "home_page" . }}
+    <div class="is-flex is-justify-content-center m-5">
+        <button class="button is-primary is-large " hx-get="/random" hx-target="#page" hx-swap="innerHTML">Random</button>
+    </div>
+{{ end }}
