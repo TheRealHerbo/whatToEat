@@ -17,6 +17,7 @@
     </div>
     <div class="card-footer">
         <a class="card-footer-item" hx-get="/details/{{ .Id }}" hx-target="#page" hx-swap="innerHTML" hx-push-url="/details/{{ .Id }}">Details</a>
+        <a class="card-footer-item has-text-danger" hx-delete="/delete/{{ .Id }}" hx-target="#page" hx-swap="innerHTML">Delete</a>
     </div>
 </div>
 {{ end }}

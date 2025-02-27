@@ -10,6 +10,17 @@ import (
 	"database/sql"
 )
 
+const countRecipies = `-- name: CountRecipies :one
+SELECT COUNT(*) FROM recipie
+`
+
+func (q *Queries) CountRecipies(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, countRecipies)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
 const createRecipie = `-- name: CreateRecipie :one
 INSERT INTO recipie (
   name, ingredients, directions

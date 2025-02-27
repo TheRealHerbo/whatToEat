@@ -4,8 +4,8 @@
       <button class="button is-link" hx-get="/add" hx-target="#page" hx-swap="innerHTML" hx-push-url="/recipies/add">Add</button>
     </div>
 </div>
-<div class="grid is-col-min-10 p-2">
-    {{ range .Recipies }}
+<div class="grid is-col-min-15 p-2">
+    {{ range . }}
         <div class="cell">{{ template "recipie" . }}</div>
     {{ end }}
 </div>

@@ -24,3 +24,6 @@ WHERE id = ?;
 -- name: DeleteRecipie :exec
 DELETE FROM recipie
 WHERE id = ?;
+
+-- name: CountRecipies :one
+SELECT COUNT(*) FROM recipie;
